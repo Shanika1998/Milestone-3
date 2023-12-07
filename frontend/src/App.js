@@ -4,9 +4,11 @@ import AppNavbar from './components/Navbar'
 import Home from "./components/Home"
 import LoginForm from "./users/LoginForm"
 import SignUpForm from './users/signupForm';
+import CurrentUserProvider from './context/currentUser';
 
 function App() {
   return (
+    <CurrentUserProvider>
     <BrowserRouter>
         <AppNavbar />
           <Switch>
@@ -16,6 +18,7 @@ function App() {
         
           </Switch>
     </BrowserRouter>
+    </CurrentUserProvider>
   );
 }
 
