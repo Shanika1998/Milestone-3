@@ -15,7 +15,7 @@ function SignUpForm() {
 	async function handleSubmit(e) {
 		e.preventDefault()
 
-		await fetch(`http://localhost:5002/users/`, {
+		await fetch(`http://localhost:5002/users`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ function SignUpForm() {
 			body: JSON.stringify(user)
 		})
 
-		history.push(`/`)
+		history.push(`/login`)
 	}
 
 	return (
@@ -36,7 +36,7 @@ function SignUpForm() {
 						<input
 							required
 							value={user.firstName}
-							onChange={e => setUser({ ...user, firstName: e.target.value })}
+							onChange={e => setUser(prevState => ({ ...prevState, firstName: e.target.value }))}
 							className="form-control"
 							id="firstName"
 							name="firstName"
@@ -47,7 +47,7 @@ function SignUpForm() {
 						<input
 							required
 							value={user.lastName}
-							onChange={e => setUser({ ...user, lastName: e.target.value })}
+							onChange={e => setUser(prevState => ({ ...prevState, lastName: e.target.value }))}
 							className="form-control"
 							id="lastName"
 							name="lastName"
@@ -61,7 +61,7 @@ function SignUpForm() {
 							type="email"
 							required
 							value={user.email}
-							onChange={e => setUser({ ...user, email: e.target.value })}
+							onChange={e => setUser(prevState => ({ ...prevState, email: e.target.value }))}
 							className="form-control"
 							id="email"
 							name="email"
@@ -74,8 +74,8 @@ function SignUpForm() {
         				<input
          	  				type="password"
             				required
-            				value={user.passwordDigest}
-            				onChange={e => setUser({ ...user, passwordDigest: e.target.value })}
+            				value={user.password}
+            				onChange={e => (prevState => ({ ...prevState, password: e.target.value }))}
             				className="form-control"
             				id="password"
             				name="password"

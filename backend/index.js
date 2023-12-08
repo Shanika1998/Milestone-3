@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/cats', require('./controllers/cats'))
 app.use('/users', require('./controllers/users'))
 app.use('/adopt', require('./controllers/adoptions'))
-app.use('/authentication', require('./controllers/authentication'))
+// app.use('/authentication', require('./controllers/authentication'))
 
 // mongoDB connection
 async function connectToDatabase() {

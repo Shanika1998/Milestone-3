@@ -6,8 +6,9 @@ import LoginForm from "./users/LoginForm"
 import SignUpForm from './users/signupForm'
 import AllCats from './components/allCats'
 import CatDetails from './components/catDetails';
-import AdoptionForm from './components/adoptionForm';
-import CurrentUserProvider from './context/currentUser';
+import NewAdoptionForm from './components/adoptionForm'
+import CurrentUserProvider from './context/currentUser'
+import About from './components/About'
 
 function App() {
   return (
@@ -16,12 +17,12 @@ function App() {
         <AppNavbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/sign-up" component={SignUpForm} />
+            <Route exact path="/signup" component={SignUpForm} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/cats" component={AllCats}/>
             <Route exact path="/cats/:id" component={CatDetails}/>
-            <Route exact path="/adopt" components={AdoptionForm}/>
-
+            <Route exact path="/adopt" component={NewAdoptionForm}/>
+            <Route exact path='/about' component={About}/>
         
           </Switch>
     </BrowserRouter>
