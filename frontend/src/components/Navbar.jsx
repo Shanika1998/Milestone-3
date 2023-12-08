@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import {  Link } from "react-router-dom"
 import { CurrentUser } from '../context/currentUser'
+import './styles.css'
 
 function AppNavbar() {
-  
 
     const { currentUser } = useContext(CurrentUser)
 
@@ -26,19 +26,18 @@ function AppNavbar() {
         )
     }
   return (
-        <nav>
-          <ul>
+        <nav className='navbar'>
+           <h1>Diana's Adopt-A-Cat</h1>  
+          <ul >
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" >Home</Link>
             </li>
             <li>
-              <Link to="/cats">Cats</Link>
+              <Link to="/cats" >Cats</Link>
             </li>
+        
             <li>
-              <Link to="/cats/new">Add to Our Inventory</Link>
-            </li>
-            <li>
-              <Link to="/adopt">Adopt a Cat!</Link>
+              <Link to="/adopt">Adopt-A-Cat!</Link>
             </li>
             {loginActions}
           </ul>
