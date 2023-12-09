@@ -29,37 +29,6 @@ router.get('/:id', async (req, res) => {
     }
   })
 
-//   // Update a cat by ID
-// router.put('/:id', async (req, res) => {
-//     try {
-//       const { name, breed, age, availableForAdoption, description, image } = req.body;
-  
-//       if (!name || !breed || !age || !description || !image) {
-//         return res.status(400).json({ error: 'All fields are required' });
-//       }
-  
-//       const updatedCat = await Cats.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//           name,
-//           breed,
-//           age,
-//           description,
-//           image,
-//         },
-//         { new: true } // Return the updated cat info
-//       );
-  
-//       if (!updatedCat) {
-//         return res.status(404).json({ error: 'Cat not found' });
-//       }
-  
-//       res.json(updatedCat);
-//     } catch (error) {
-//       console.error('Error updating a cat:', error);
-//       res.status(500).json({ error: 'Unable to update the cat' });
-//     }
-//   })
 
 
 

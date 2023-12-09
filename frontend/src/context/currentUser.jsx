@@ -1,12 +1,12 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react"
 
 export const CurrentUser = createContext()
 
     function CurrentUserProvider({ children }) {
-        const [currentUser, setCurrentUser] = useState(null);
+        const [currentUser, setCurrentUser] = useState(null)
     
         useEffect(() => {
-            const token = localStorage.getItem('token');
+            const token = localStorage.getItem('token')
             if (!token) return; // No token, no need to fetch user data
     
             const fetchUser = async () => {
@@ -20,18 +20,18 @@ export const CurrentUser = createContext()
                     });
     
                     if (!response.ok) {
-                        throw new Error('Failed to fetch user data');
+                        throw new Error('Failed to fetch user data')
                     }
     
-                    const user = await response.json();
-                    setCurrentUser(user);
+                    const user = await response.json()
+                    setCurrentUser(user)
                 } catch (error) {
-                    console.error('Error fetching user data:', error);
-                    setCurrentUser(null);
+                    console.error('Error fetching user data:', error)
+                    setCurrentUser(null)
                 }
             };
     
-            fetchUser();
+            fetchUser()
         }, [])
     
         return (

@@ -29,13 +29,13 @@ function LoginForm() {
             });
     
             if (!response.ok) {
-                throw new Error('Failed to authenticate');
+                throw new Error('Failed to authenticate')
             }
     
             const data = await response.json();
             return data;
         } catch (error) {
-            throw new Error('Authentication error: ' + error.message);
+            throw new Error('Authentication error: ' + error.message)
         }
     }
     
@@ -44,13 +44,13 @@ function LoginForm() {
         e.preventDefault();
     
         try {
-            const data = await authenticateUser(credentials);
+            const data = await authenticateUser(credentials)
     
-            setCurrentUser(data.user);
-            localStorage.setItem('token', data.token);
+            setCurrentUser(data.user)
+            localStorage.setItem('token', data.token)
             history.push('/');
         } catch (error) {
-            setErrorMessage(error.message);
+            setErrorMessage(error.message)
         }
     }
 

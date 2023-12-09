@@ -16,11 +16,11 @@ function NewAdoptionForm (){
         // Fetch available cats when the component mounts
         async function fetchCats() {
             try {
-                const response = await fetch('http://localhost:5002/cats');
-                const data = await response.json();
+                const response = await fetch('http://localhost:5002/cats')
+                const data = await response.json()
                 setCats(data);
             } catch (error) {
-                console.error('Error fetching cats:', error);
+                console.error('Error fetching cats:', error)
             }
         }
         fetchCats();
@@ -49,7 +49,7 @@ function NewAdoptionForm (){
             <input type="text" name="phone" placeholder="Phone" value={adopt.phone} onChange={e => setAdopt({...adopt, phone: e.target.value })} className="form-input" required />
             <input type="text" name="address" placeholder="Address" value={adopt.address} onChange={e => setAdopt({...adopt, address: e.target.value })} className="form-input" required />
             <label htmlFor="catSelect">Select a Cat:</label>
-            <select id="catSelect" name="catSelect" onChange={e => setAdopt({...adopt, selectedCat: e.target.value })} value={adopt.selectedCat} className='form-input'>
+            <select id="selectedCat" name="selectedCat" onChange={e => setAdopt({...adopt, selectedCat: e.target.value })} value={adopt.selectedCat} className='form-input'>
                 <option value="">Select a Cat</option>
                 {cats.map((cat) => (
                     <option key={cat.id} value={cat.id}>
@@ -66,7 +66,6 @@ function NewAdoptionForm (){
           <nav className='navbar'>
             <a href="/about">About</a>
             <a href="/faq">FAQs</a>
-            <a href="#">Terms of Service</a>
           </nav>
         </footer>
         </main>

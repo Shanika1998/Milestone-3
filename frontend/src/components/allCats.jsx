@@ -10,16 +10,16 @@ function AllCats(data) {
 	useEffect(() => {
 		const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5002/cats');
+        const response = await fetch('http://localhost:5002/cats')
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok')
         }
-        const resData = await response.json();
-        setCats(resData);
-        setLoading(false);
+        const resData = await response.json()
+        setCats(resData)
+        setLoading(false)
       } catch (err) {
-        setError(err);
-        setLoading(false);
+        setError(err)
+        setLoading(false)
       }
     };
 		fetchData()
@@ -27,9 +27,9 @@ function AllCats(data) {
 
 	let catsFormatted = null
   if (loading) {
-    catsFormatted = <p>Loading...</p>;
+    catsFormatted = <p>Loading...</p>
   } else if (error) {
-    catsFormatted = <p>Error: {error.message}</p>;
+    catsFormatted = <p>Error: {error.message}</p>
   } else {
     catsFormatted = cats.map((cat) => (
       <div className="cat-card" key={cat._id}>
