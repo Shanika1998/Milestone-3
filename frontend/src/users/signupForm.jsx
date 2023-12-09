@@ -29,7 +29,7 @@ function SignUpForm() {
 	return (
 		<main>
 			<h1>Sign Up</h1>
-			<form className="form-container" onSubmit={handleSubmit}>
+			<form className="sform-container" onSubmit={handleSubmit}>
 				<div className="row">
 					<div className="col-sm-6 form-group">
 						<label htmlFor="firstName">First Name</label>
@@ -89,8 +89,7 @@ function SignUpForm() {
           <p>Contact us: contact@adoptacatapp.com</p>
           <nav className='navbar'>
             <a href="/about">About</a>
-            <a href="#">FAQs</a>
-            <a href="#">Terms of Service</a>
+            <a href="/faq">FAQs</a>
           </nav>
         </footer>
 		</main>

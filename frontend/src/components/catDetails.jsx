@@ -50,8 +50,7 @@ function CatDetails() {
         <p>Contact us: contact@adoptacatapp.com</p>
         <nav className='navbar'>
           <a href="/about">About</a>
-          <a href="#">FAQs</a>
-          <a href="#">Terms of Service</a>
+          <a href="/faq">FAQs</a>
         </nav>
       </footer>
       </main>

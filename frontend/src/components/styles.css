@@ -40,6 +40,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width:auto;
 }
 
 nav a {
@@ -54,6 +55,44 @@ nav a:hover {
   color: #ff9900;
 }
 
+.about-page {
+  max-width: 800em;
+  margin: 0 auto;
+  padding: 10em;
+}
+
+.about-page p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.faq-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* FAQ item styles */
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+/* Question styles */
+.faq-item h2 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+/* Answer styles */
+.faq-item p {
+  font-size: 1em;
+  line-height: 1.4;
+  color: #333;
+}
 
 .hero {
   text-align: center;
@@ -205,7 +244,17 @@ footer a:hover {
 .goBack-btn:hover {
   background-color: #ffbb33;
 }
-
+.sform-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  justify-content: center;
+  flex: 1; 
+  margin-right: 20px; 
+  background-color: #f9f9f9;
+}
 
 .form-container {
   max-width: 400px;

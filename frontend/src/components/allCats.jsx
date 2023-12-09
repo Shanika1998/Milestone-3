@@ -43,15 +43,6 @@ function AllCats(data) {
       </div>
   ));
     
-    // catsFormatted = cats.map((cat) => (
-    //   <div className="col-sm-4" key={cat._id}>
-    //     <h2>
-    //       <Link to={`/cats/${cat._id}`}>{cat.name}</Link>
-    //     </h2>
-    //     <p className="text">{cat.breed}</p>
-    //     <img style={{ width: '200px' }} src={cat.image} alt={cat.name} />
-    //   </div>
-    // ));
   }
 	return (
 		<main>
@@ -63,8 +54,7 @@ function AllCats(data) {
           <p>Contact us: contact@adoptacatapp.com</p>
           <nav className='navbar'>
             <a href="/about">About</a>
-            <a href="#">FAQs</a>
-            <a href="#">Terms of Service</a>
+            <a href="/faq">FAQs</a>
           </nav>
         </footer>
 		</main>

@@ -9,6 +9,7 @@ import CatDetails from './components/catDetails';
 import NewAdoptionForm from './components/adoptionForm'
 import CurrentUserProvider from './context/currentUser'
 import About from './components/About'
+import FAQ from './components/faq';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/cats/:id" component={CatDetails}/>
             <Route exact path="/adopt" component={NewAdoptionForm}/>
             <Route exact path='/about' component={About}/>
+            <Route exact path='/faq' component={FAQ}/>
         
           </Switch>
     </BrowserRouter>
