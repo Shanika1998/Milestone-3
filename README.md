@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Milestone 3 Project: Diana's Adopt-A-Cat
+Diana's Adopt-A-Cat is an app where users can browse and adopt a cat. This application is a full-stack MERN (MongoDB, Express.js, React, Node.js) web application. It allows users to view available cats and submit adoption forms.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features 
 
-## Available Scripts
+View Cats: Browse through a list of available cats.
+Adoption Form: Fill out an adoption form to express interest in adopting a cat.
+User Authentication: Sign up and log in functionalities for users. (TBD)
+Individual Cat Details: View detailed information about each cat.
+Responsive Design: Mobile-friendly interface.
 
-In the project directory, you can run:
+### Technologies Used 
+MongoDB: Database for storing cat and user information.
+Express.js: Backend framework for handling HTTP requests.
+React: Frontend framework for the user interface.
+Node.js: Backend JavaScript runtime environment.
+JWT: JSON Web Tokens for user authentication.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### git clone: https://github.com/Shanika1998/Milestone-3.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### API (http://localhost:5000)
+| Method | Path                                 |  Purpose                                  |
+| ------ | ------------------------------------ | ----------------------------------------- |
+| GET    | /                                    | Home page                                 |
+| GET    | /cats                                | Cats  index  page                         |
+| GET    | /cats/:id                            | Details about a particular place          |
+| POST   | /adopt/                              | Submit a new  adoption form               |
+| GET    | /adopt/                              | See adoption forms (backend)              |
+| POST   | /users                               | Create a new User                         |
+| GET    | /authentication/login                | See login (backend)                       |
+| GET    | /authentication/profile              | See users (backend)                       |
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### App (http://localhost:3000)
+| Path                  | Component                    | Purpose                                                                         |
+| --------------------- | -------------------------    | ------------------------------------------------------------------------------- |
+| /                     | `Home.js`                    | Home page                                                                       |
+| /signup               | `users/signupForm.jsx`       | Form for creating a user                                                        |
+| /login                | `users/LoginForm.jsx`        | Login a user                                                                    |
+| /cats                 | `components/allCats.jsx`     | Display of cats                                                                 |
+| /cats/:id             | `components/catDetails.jsx`  | Display of of individual cat                                                    |
+| /adopt                | `components/adoptionForm.jsx`| Form to pick a cat to adopt, as well as inputing additional info                |
+                                                 

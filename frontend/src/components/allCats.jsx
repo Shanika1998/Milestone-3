@@ -32,14 +32,26 @@ function AllCats(data) {
     catsFormatted = <p>Error: {error.message}</p>;
   } else {
     catsFormatted = cats.map((cat) => (
-      <div className="col-sm-4" key={cat._id}>
-        <h2>
-          <Link to={`/cats/${cat._id}`}>{cat.name}</Link>
-        </h2>
-        <p className="text">{cat.breed}</p>
-        <img style={{ width: '200px' }} src={cat.image} alt={cat.name} />
+      <div className="cat-card" key={cat._id}>
+          <Link to={`/cats/${cat._id}`}>
+              <img className="cat-image" src={cat.image} alt={cat.name} />
+              <div className="cat-details">
+                  <h2>{cat.name}</h2>
+                  <p className="text">{cat.breed}</p>
+              </div>
+          </Link>
       </div>
-    ));
+  ));
+    
+    // catsFormatted = cats.map((cat) => (
+    //   <div className="col-sm-4" key={cat._id}>
+    //     <h2>
+    //       <Link to={`/cats/${cat._id}`}>{cat.name}</Link>
+    //     </h2>
+    //     <p className="text">{cat.breed}</p>
+    //     <img style={{ width: '200px' }} src={cat.image} alt={cat.name} />
+    //   </div>
+    // ));
   }
 	return (
 		<main>
@@ -47,8 +59,16 @@ function AllCats(data) {
 			<div className="row">
 				{catsFormatted}
 			</div>
+      <footer>
+          <p>Contact us: contact@adoptacatapp.com</p>
+          <nav className='navbar'>
+            <a href="/about">About</a>
+            <a href="#">FAQs</a>
+            <a href="#">Terms of Service</a>
+          </nav>
+        </footer>
 		</main>
 	)
 }
 
-export default AllCats;
+export default AllCats

@@ -1,3 +1,7 @@
+main {
+  padding: 20px;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -50,7 +54,7 @@ nav a:hover {
   color: #ff9900;
 }
 
-/* Hero section styles */
+
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -70,6 +74,7 @@ nav a:hover {
 
 h1 {
   color: #ff9900;
+  text-align: center;
 }
 
 .cta-button {
@@ -105,6 +110,67 @@ img {
   width: 200em;
   height: auto; 
 }
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cat-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.c-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.cat-image {
+  width: 75%;
+  height: 50em;
+  justify-content: center;
+  object-fit: cover;
+}
+.c-details p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+
+.cat-details {
+  padding: 15px;
+}
+
+.cat-details h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.cat-details p {
+  margin: 0;
+  color: #666;
+}
+.container {
+  padding: 20px;
+  margin: auto;
+  max-width: 800px;
+}
+.cat-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 /* Footer styles */
 footer {
@@ -112,6 +178,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px;
+  width: 100%;
 }
 
 footer a {
@@ -125,3 +192,69 @@ footer a {
 footer a:hover {
   color: #ff9900
 }
+.goBack-btn {
+  padding: 10px 20px;
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.goBack-btn:hover {
+  background-color: #ffbb33;
+}
+
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1; 
+  margin-right: 20px; 
+  background-color: #f9f9f9;
+}
+
+.form-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.submit-btn {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffbb33;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  flex-wrap: wrap; 
+  
+}
+.cat-adopt-image {
+  width: 50em; 
+  height: auto
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+

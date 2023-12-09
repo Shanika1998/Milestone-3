@@ -2,6 +2,8 @@ import { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { CurrentUser } from "../context/currentUser"
 
+
+
 function LoginForm() {
 
     const history = useHistory()
@@ -63,7 +65,7 @@ function LoginForm() {
                 )
                 : null
             }
-            <form onSubmit={handleSubmit}>
+            <form className="form-container" onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm-6 form-group">
                         <label htmlFor="email">Email</label>
@@ -72,7 +74,7 @@ function LoginForm() {
                             required
                             value={credentials.email}
                             onChange={e => setCredentials(prevCredentials => ({ ...prevCredentials, email: e.target.value }))}
-                            className="form-control"
+                            className="form-input"
                             id="email"
                             name="email"
                         />
@@ -84,14 +86,22 @@ function LoginForm() {
                             required
                             value={credentials.password}
                             onChange={e => setCredentials(prevCredentials => ({ ...prevCredentials, password: e.target.value }))}
-                            className="form-control"
+                            className="form-input"
                             id="password"
                             name="password"
                         />
                     </div>
                 </div>
-                <input className="btn btn-primary" type="submit" value="Login" />
+                <input className="submit-btn" type="submit" value="Login" />
             </form>
+            <footer>
+          <p>Contact us: contact@adoptacatapp.com</p>
+          <nav className='navbar'>
+            <a href="/about">About</a>
+            <a href="#">FAQs</a>
+            <a href="#">Terms of Service</a>
+          </nav>
+        </footer>
         </main>
     )
 }

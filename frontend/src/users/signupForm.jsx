@@ -29,7 +29,7 @@ function SignUpForm() {
 	return (
 		<main>
 			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+			<form className="form-container" onSubmit={handleSubmit}>
 				<div className="row">
 					<div className="col-sm-6 form-group">
 						<label htmlFor="firstName">First Name</label>
@@ -37,7 +37,7 @@ function SignUpForm() {
 							required
 							value={user.firstName}
 							onChange={e => setUser(prevState => ({ ...prevState, firstName: e.target.value }))}
-							className="form-control"
+							className="form-input"
 							id="firstName"
 							name="firstName"
 						/>
@@ -48,7 +48,7 @@ function SignUpForm() {
 							required
 							value={user.lastName}
 							onChange={e => setUser(prevState => ({ ...prevState, lastName: e.target.value }))}
-							className="form-control"
+							className="form-input"
 							id="lastName"
 							name="lastName"
 						/>
@@ -62,7 +62,7 @@ function SignUpForm() {
 							required
 							value={user.email}
 							onChange={e => setUser(prevState => ({ ...prevState, email: e.target.value }))}
-							className="form-control"
+							className="form-input"
 							id="email"
 							name="email"
 						/>
@@ -76,13 +76,13 @@ function SignUpForm() {
             				required
             				value={user.password}
             				onChange={e => setUser(prevState => ({ ...prevState, password: e.target.value }))}
-            				className="form-control"
+            				className="form-input"
             				id="password"
             				name="password"
         				/>
    			 	</div>
 			</div>
-				<input className="btn btn-primary" type="submit" value="Sign Up" />
+				<input className="submit-btn" type="submit" value="Sign Up" />
 			</form>
 			
 			<footer>

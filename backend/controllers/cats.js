@@ -1,28 +1,7 @@
 const router = require('express').Router()
 const Cats = require('../models/cats')
 
-router.post('/new', async (req, res) => {
-    if (!req.body.name) {
-      req.body.name = 'Any Name'
-  }
-    if (!req.body.breed) {
-    req.body.rated = 'Mixed'
-  }
-    if (!req.body.age) {
-        
-        req.body.age = 'Unknown'
-    }
-    if (!req.body.description) {
-        req.body.genre = 'Cutie Pie!'
-    }
-  if (!req.body.image) {
-    req.body.duration = 'https://www.leoncountyhumane.org/wp-content/uploads/2020/05/Dilbert75474.jpg'// Default image if one is not provided
-  }
-    const cat = await Cats.create(req.body)
-    res.json(cat)
-  })
-
-  // Get all cats
+ // Get all cats
 router.get('/', async (req, res) => {
     try{
     const cats = await Cats.find()
