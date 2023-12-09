@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { useHistory } from "react-router"
+import { useHistory } from "react-router-dom"
 import { CurrentUser } from "../context/currentUser"
 
 function LoginForm() {
@@ -16,25 +16,41 @@ function LoginForm() {
     const [errorMessage, setErrorMessage] = useState(null)
 
         
-async function handleSubmit(e) {
-    const response = await fetch(`http://localhost:5002/authentication/`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-
-    const data = await response.json()
-
-    if (response.status === 200) {
-        setCurrentUser(data.user)
-        localStorage.setItem('token', data.token)
-        history.push(`/`)
-    } else {
-        setErrorMessage(data.message)
+    async function authenticateUser(credentials) {
+        try {
+            const response = await fetch('http://localhost:5002/authentication/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(credentials)
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to authenticate');
+            }
+    
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            throw new Error('Authentication error: ' + error.message);
+        }
     }
-}
+    
+    // Updated handleSubmit function
+    async function handleSubmit(e) {
+        e.preventDefault();
+    
+        try {
+            const data = await authenticateUser(credentials);
+    
+            setCurrentUser(data.user);
+            localStorage.setItem('token', data.token);
+            history.push('/');
+        } catch (error) {
+            setErrorMessage(error.message);
+        }
+    }
 
     return (
         <main>
@@ -55,7 +71,7 @@ async function handleSubmit(e) {
                             type="email"
                             required
                             value={credentials.email}
-                            onChange={e => setCredentials({ ...credentials, email: e.target.value })}
+                            onChange={e => setCredentials(prevCredentials => ({ ...prevCredentials, email: e.target.value }))}
                             className="form-control"
                             id="email"
                             name="email"
@@ -67,7 +83,7 @@ async function handleSubmit(e) {
                             type="password"
                             required
                             value={credentials.password}
-                            onChange={e => setCredentials({ ...credentials, password: e.target.value })}
+                            onChange={e => setCredentials(prevCredentials => ({ ...prevCredentials, password: e.target.value }))}
                             className="form-control"
                             id="password"
                             name="password"

@@ -6,7 +6,6 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String, required: [true,"Your last name is required."] },
     email: { type: String, required: [true,"Your email address is required."] },
     password: { type: String, required: [true,"Your password is required."] },
-    createdAt: {type: Date, default: new Date(),}
   })
 
   UserSchema.pre("save", async function () {

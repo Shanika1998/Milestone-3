@@ -1,5 +1,5 @@
 import { useState} from "react"
-import { useHistory } from "react-router"
+import { useHistory } from "react-router-dom"
 
 function SignUpForm() {
 
@@ -23,7 +23,7 @@ function SignUpForm() {
 			body: JSON.stringify(user)
 		})
 
-		history.push(`/login`)
+		history.push('/login')
 	}
 
 	return (
@@ -75,7 +75,7 @@ function SignUpForm() {
          	  				type="password"
             				required
             				value={user.password}
-            				onChange={e => (prevState => ({ ...prevState, password: e.target.value }))}
+            				onChange={e => setUser(prevState => ({ ...prevState, password: e.target.value }))}
             				className="form-control"
             				id="password"
             				name="password"
@@ -84,6 +84,15 @@ function SignUpForm() {
 			</div>
 				<input className="btn btn-primary" type="submit" value="Sign Up" />
 			</form>
+			
+			<footer>
+          <p>Contact us: contact@adoptacatapp.com</p>
+          <nav className='navbar'>
+            <a href="/about">About</a>
+            <a href="#">FAQs</a>
+            <a href="#">Terms of Service</a>
+          </nav>
+        </footer>
 		</main>
 	)
 }

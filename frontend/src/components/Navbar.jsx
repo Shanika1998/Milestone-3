@@ -10,7 +10,7 @@ function AppNavbar() {
     let loginActions = (
         <>
             <li style={{ float: 'right' }}>
-            <Link to="/sign-up">Sign Up</Link>
+            <Link to="/signup">Sign Up</Link>
             </li>
             <li style={{ float: 'right' }}>
             <Link to="/login">Login</Link>

@@ -5,7 +5,7 @@ body {
   color: #333;
 }
 .navbar {
-  background-color: #333;
+  background-color: #231838;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -94,10 +94,21 @@ h1 {
     margin-bottom: 15px;
   }
 
+  .image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px 0;
+  }
+
+img {
+  width: 200em;
+  height: auto; 
+}
 
 /* Footer styles */
 footer {
-  background-color: #333;
+  background-color: #231838;
   color: #fff;
   text-align: center;
   padding: 20px;
