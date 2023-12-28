@@ -19,23 +19,33 @@ function LoginForm() {
 
         
     async function authenticateUser(credentials) {
+        const url = 'http://localhost:5002/authentication/login';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        };
+    
         try {
-            const response = await fetch('http://localhost:5002/authentication/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(credentials)
-            });
+            const response = await fetch(url, options);
     
             if (!response.ok) {
-                throw new Error('Failed to authenticate')
+                throw new Error('Failed to authenticate');
             }
     
-            const data = await response.json();
-            return data;
+            const contentType = response.headers.get('content-type');
+    
+            if (contentType && contentType.includes('application/json')) {
+                return await response.json(); // If content-type is JSON, parse as JSON
+            } else {
+                const responseData = await response.text(); // If content-type is not JSON, handle as text
+                console.log('Non-JSON response:', responseData); // Log the non-JSON response
+                return { message: responseData }; // Wrap text response in an object for consistency
+            }
         } catch (error) {
-            throw new Error('Authentication error: ' + error.message)
+            throw new Error('Authentication error: ' + error.message);
         }
     }
     
@@ -44,13 +54,20 @@ function LoginForm() {
         e.preventDefault();
     
         try {
-            const data = await authenticateUser(credentials)
+            const data = await authenticateUser(credentials);
     
-            setCurrentUser(data.user)
-            localStorage.setItem('token', data.token)
-            history.push('/');
+            // Check if data has a 'user' and 'token' property
+            if (data && data.token) {
+                // If user data isn't returned, proceed without setting user data
+                localStorage.setItem('token', data.token);
+                history.push('/');
+            } else {
+                throw new Error('Invalid response format or missing token');
+            }
+    
+            setErrorMessage(null); // Clear error message
         } catch (error) {
-            setErrorMessage(error.message)
+            setErrorMessage(error.message);
         }
     }
 

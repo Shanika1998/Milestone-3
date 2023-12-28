@@ -1,15 +1,16 @@
 import React from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import AppNavbar from './components/Navbar'
 import Home from "./components/Home"
 import LoginForm from "./users/LoginForm"
 import SignUpForm from './users/signupForm'
 import AllCats from './components/allCats'
-import CatDetails from './components/catDetails';
+import CatDetails from './components/catDetails'
 import NewAdoptionForm from './components/adoptionForm'
 import CurrentUserProvider from './context/currentUser'
 import About from './components/About'
-import FAQ from './components/faq';
+import FAQ from './components/faq'
+
 
 function App() {
   return (
@@ -25,7 +26,6 @@ function App() {
             <Route exact path="/adopt" component={NewAdoptionForm}/>
             <Route exact path='/about' component={About}/>
             <Route exact path='/faq' component={FAQ}/>
-        
           </Switch>
     </BrowserRouter>
     </CurrentUserProvider>

@@ -12,19 +12,28 @@ function SignUpForm() {
 		password: ''
 	})
 
-	async function handleSubmit(e) {
-		e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-		await fetch(`http://localhost:5002/users`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(user)
-		})
+        try {
+            const response = await fetch(`http://localhost:5002/authentication/signup`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
 
-		history.push('/login')
-	}
+            if (response.ok) {
+                history.push('/login');
+            } else {
+                // Handle unsuccessful signup
+                console.error('Signup failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
 
 	return (
 		<main>

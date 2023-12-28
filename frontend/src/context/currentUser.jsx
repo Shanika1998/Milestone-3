@@ -2,37 +2,41 @@ import { createContext, useState, useEffect } from "react"
 
 export const CurrentUser = createContext()
 
-    function CurrentUserProvider({ children }) {
-        const [currentUser, setCurrentUser] = useState(null)
-    
-        useEffect(() => {
-            const token = localStorage.getItem('token')
-            if (!token) return; // No token, no need to fetch user data
-    
-            const fetchUser = async () => {
-                if (!token) return;
-    
-                try {
-                    const response = await fetch('http://localhost:5002/authentication/profile', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-    
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch user data')
+function CurrentUserProvider({ children }) {
+    const [currentUser, setCurrentUser] = useState(null)
+    const [loading, setLoading] = useState(true); // Loading state
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+            setLoading(false); // No token, set loading to false
+            return;
+        }
+
+        const fetchUser = async () => {
+            try {
+                const response = await fetch('http://localhost:5002/authentication/login', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
                     }
-    
-                    const user = await response.json()
-                    setCurrentUser(user)
-                } catch (error) {
-                    console.error('Error fetching user data:', error)
-                    setCurrentUser(null)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
                 }
-            };
-    
-            fetchUser()
-        }, [])
+
+                const user = await response.json();
+                setCurrentUser(user);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                setCurrentUser(null);
+            } finally {
+                setLoading(false); // Set loading to false after fetch attempt
+            }
+        };
+
+        fetchUser();
+    }, [])
     
         return (
             <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
