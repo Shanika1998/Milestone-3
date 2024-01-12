@@ -33,6 +33,7 @@ function FAQ() {
       </div>
     </div>
     <footer>
+    <p>Contact us: contact@adoptacatapp.com</p>
     <nav className='navbar'>
             <a href="/about">About</a>
             <a href="/faq">FAQs</a>

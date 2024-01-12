@@ -18,7 +18,7 @@ router.post('/signup', async (req, res) => {
 
       // Hash the password
       const hashedPassword = await bcrypt.hash(password, 12)
-      
+
       console.log('Retrieved hashed pasword:', hashedPassword)
       // Create a new user
       const newUser = new User({
@@ -69,6 +69,7 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Internal server error');
   }
 })
+
 
 router.get('/protected', verifyToken, (req, res) => {
   res.status(200).json({ message: 'Protected route accessed successfully' });

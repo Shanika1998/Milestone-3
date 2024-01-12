@@ -4,18 +4,18 @@ export const CurrentUser = createContext()
 
 function CurrentUserProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (!token) {
-            setLoading(false); // No token, set loading to false
+            setLoading(false);
             return;
         }
 
         const fetchUser = async () => {
             try {
-                const response = await fetch('http://localhost:5002/authentication/login', {
+                const response = await fetch('http://localhost:5002/users/current-user', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -31,16 +31,21 @@ function CurrentUserProvider({ children }) {
                 console.error('Error fetching user data:', error);
                 setCurrentUser(null);
             } finally {
-                setLoading(false); // Set loading to false after fetch attempt
+                setLoading(false);
             }
-        };
+        }
 
-        fetchUser();
+        fetchUser()
+
     }, [])
     
         return (
             <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
-                {children}
+               {loading ? (
+                <div>Loading...</div>
+            ) : (
+                children
+            )}
             </CurrentUser.Provider>
         );
     }

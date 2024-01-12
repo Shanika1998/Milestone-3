@@ -3,6 +3,7 @@ import React from 'react'
 function About () {
     return(
         <main>
+            <h1>About Us</h1>
         <div className='about-page'>
             <p> Diana's Adopt-A-Cat is dedicated to helping cats find loving homes. There are approximately 500,000 stray cats
                 roaming the streets of New York City. We, along with numerous organizations nationide, are making it a goal to decrease 
