@@ -22,16 +22,19 @@ JWT: JSON Web Tokens for user authentication.
 
 
 ### API (http://localhost:5000)
-| Method | Path                                 |  Purpose                                  |
-| ------ | ------------------------------------ | ----------------------------------------- |
-| GET    | /                                    | Home page                                 |
-| GET    | /cats                                | Cats  index  page                         |
-| GET    | /cats/:id                            | Details about a particular place          |
-| POST   | /adopt/                              | Submit a new  adoption form               |
-| GET    | /adopt/                              | See adoption forms (backend)              |
-| POST   | /users                               | Create a new User                         |
-| GET    | /authentication/login                | See login (backend)                       |
-| GET    | /authentication/profile              | See users (backend)                       |
+| Method | Path                                 |  Purpose                                   |
+| ------ | ------------------------------------ | -----------------------------------------  |
+| GET    | /                                    | Home page                                  |
+| GET    | /cats                                | Cats  index  page                          |
+| GET    | /cats/:id                            | Details about a particular cat based on id |
+| POST   | /adopt/                              | Submit a new  adoption form                |
+| GET    | /adopt/                              | See adoption forms (backend)               |
+| GET    | /users                               | get all Users                              |
+| GET    | /users/:id                           | Details about a particular user based on id|
+| GET    | /users/current-user                  | Login user, if found in database           |
+| POST   | /authentication/signup               | Create a new User                          |
+| POST   | /authentication/login                | Login existing user                        |
+
 
 ### App (http://localhost:3000)
 | Path                  | Component                    | Purpose                                                                         |
@@ -41,5 +44,7 @@ JWT: JSON Web Tokens for user authentication.
 | /login                | `users/LoginForm.jsx`        | Login a user                                                                    |
 | /cats                 | `components/allCats.jsx`     | Display of cats                                                                 |
 | /cats/:id             | `components/catDetails.jsx`  | Display of of individual cat                                                    |
-| /adopt                | `components/adoptionForm.jsx`| Form to pick a cat to adopt, as well as inputing additional info                |
+| /adopt                | `components/adoptionForm.jsx`| Form to pick a cat to adopt, as well as inputting additional info               |
+| /about                | `components/About.jsx `      | Displays the "About Us" Page                                                    |
+|/faq                   | `components/faq.jsx`         | Displays the "Frequently Asked Questions" Page                                  |
                                                  
